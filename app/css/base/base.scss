@@ -55,7 +55,25 @@ input{
   min-height: 30px;
   min-width: 300px;
   border-radius: 16px;
+  padding: 5px 20px;
   border: none;
+}
+
+button{
+  padding: 15px 50px;
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  text-transform: uppercase;
+
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
 }
 
 //input::before{
