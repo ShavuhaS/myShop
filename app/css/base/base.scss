@@ -4,76 +4,76 @@
 
 
 body {
-  font-family: 'Montserrat', sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   width: 100vw;
 }
 
 h1 {
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 60px;
+   font-weight: 700;
+   font-size: 64px;
+   line-height: 60px;
 
-  color: #FFF;
+   color: #FFF;
 }
 
-h2{
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 46px;
+h2 {
+   font-weight: 700;
+   font-size: 36px;
+   line-height: 46px;
 }
 
 h3 {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 31px;
+   font-weight: 400;
+   font-size: 24px;
+   line-height: 31px;
 
-  color: #000;
+   color: #000;
 }
 
-h3.bold{
-  font-weight: 700;
+h3.bold {
+   font-weight: 700;
 }
 
-h4{
-  font-weight: 700;
-  font-size: 18px;
-  line-height:23px;
+h4 {
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 23px;
 
-  color: #FFF;
+   color: #FFF;
 }
 
 p {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 23px;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 23px;
 
-  color: #FFF;
+   color: #FFF;
 }
 
-input{
-  position: relative;
+input {
+   position: relative;
 
-  min-height: 30px;
-  min-width: 300px;
-  border-radius: 16px;
-  padding: 5px 20px;
-  border: none;
+   min-height: 30px;
+   min-width: 300px;
+   border-radius: 16px;
+   border: none;
 }
 
-button{
-  padding: 15px 50px;
+button {
+   padding: 8px 40px;
 
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 23px;
-  text-transform: uppercase;
+   font-weight: 700;
+   font-size: 18px;
+   line-height: 23px;
+   text-transform: uppercase;
 
-  border: none;
-  background-color: black;
-  color: white;
+   border: none;
+   background-color: black;
+   color: white;
 }
 
 .hidden {
-  display: none !important;
+   display: none !important;
 }
 
 //input::before{

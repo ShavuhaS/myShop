@@ -19,9 +19,8 @@
             Available colors:
          </h2>
          <div class="category__color-list">
-            @@for (var i = 0; i < color.length; i++) { 
-               <button class="category__color-item `+color[i]+`"></button>
-            }
+            @@for (var i = 0; i < color.length; i++) { <button class="category__color-item `+color[i]+`"></button>
+               }
          </div>
       </div>
       <button class="category__product-button">MORE INFO</button>
@@ -29,11 +28,10 @@
    <div class="category__product-images">
       <div class="swiper product-swiper">
          <div class="swiper-wrapper">
-            @@for (var i = 0; i < images.length; i++) { 
-               <div class="swiper-slide">
-                  <img src="`+images[i]+`" alt="">
-               </div>
-            }
+            @@for (var i = 0; i < images.length; i++) { <div class="swiper-slide">
+               <img src="`+images[i]+`" alt="">
+         </div>
+         }
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>

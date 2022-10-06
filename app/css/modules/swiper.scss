@@ -1,10 +1,15 @@
-.swiper{
-  &-button{
-    &-next{
-      color: #000000 !important;
-    }
-    &-prev{
-      color: #000000 !important;
-    }
-  }
+.swiper {
+   &-slide {
+      background: none;
+   }
+
+   &-button {
+      &-next {
+         color: #000000 !important;
+      }
+
+      &-prev {
+         color: #000000 !important;
+      }
+   }
 }

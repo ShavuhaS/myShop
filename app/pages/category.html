@@ -13,11 +13,11 @@
 
 <body>
    <div class="header-wrapper category">
-      @@include('../layout/header.html')
+      @@include('../layout/header.html', {"theme": "white"})
       <div class="header__content category">
          <div class="header__content-image">
             <img class="header__content-background" src="../images/category/content-1.png" alt="">
-            <img class="header__content-element" src="../images/category/bicycle-1.png" alt="">
+            <img class="header__content-element" src="../images/category/bike-1.png" alt="">
          </div>
          <div class="header__content-text">
             <h1 class="header__content-title">
@@ -35,10 +35,10 @@
       </div>
    </div>
 
-   @@loop("../layout/category-product.html", "../data/products.json")
+   <div class="category__product-wrapper"></div>
 
    @@include("../layout/footer.html")
-   <script src="./js/pages/main/main.js"></script>
+   <script type="module" src="./js/pages/shop/shop.js"></script>
    <script type="module" src="./js/pages/main/swiper.js"></script>
 
 </body>

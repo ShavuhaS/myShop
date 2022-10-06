@@ -1,5 +1,14 @@
 [
-  {"index": "1", "name": "OFFROAD SERIES"},
-  {"index": "2", "name": "ROAD SERIES"},
-  {"index": "3", "name": "STREET SERIES"}
+   {
+      "index": "1",
+      "name": "OFFROAD SERIES"
+   },
+   {
+      "index": "2",
+      "name": "ROAD SERIES"
+   },
+   {
+      "index": "3",
+      "name": "STREET SERIES"
+   }
 ]
