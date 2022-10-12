@@ -46,12 +46,17 @@ export class CategoriesCard extends Card {
    }
 
    createCard(card) {
+      const link = document.createElement('a');
+      link.href = `./category.html?category=${card.name}`;
+      link.target = '_blank';
       const cardWrapper = document.createElement('div');
       cardWrapper.classList.add('categories__card');
       cardWrapper.append(this.createImage(card.image, 'image'));
       cardWrapper.append(this.createImage(card.background, 'background'));
       cardWrapper.append(this.createCardTitle(card.title));
-      return cardWrapper;
+
+      link.append(cardWrapper);
+      return link;
    }
 
    createImage(image, type) {
@@ -339,15 +344,23 @@ export class CurrentProduct extends Card {
       this.data.chosenColor = this.data.colors[0];
       const colorTitleText = document.createElement('span');
       colorTitle.append(colorTitleText);
-      const colorList = document.createElement('div');
+      const colorList = document.createElement('ul');
+      colorList.classList.add('product__color-list');
       this.data.colors.forEach((color, ind) => {
-         const currentButtonColor = this.createProductColorButton(color);
-         if(ind === 0) colorTitleText.textContent = color;
-         currentButtonColor.addEventListener('click', () => {
+         const currentColorWrapper = this.createProductColorButton(color);
+         if(ind === 0) {
+            colorTitleText.textContent = color;
+            currentColorWrapper.classList.add('active');
+         }
+         currentColorWrapper.addEventListener('click', () => {
+            const colorWrappers = document.querySelectorAll('.product__color-itemWrapper')
+            colorWrappers.forEach((item) => item.classList.remove('active'));
+            
+            currentColorWrapper.classList.add('active');
             colorTitleText.textContent = color;
             this.data.chosenColor = color;
          });
-         colorList.append(currentButtonColor);
+         colorList.append(currentColorWrapper);
       })
       colorWrapper.append(
          colorTitle,
@@ -357,10 +370,13 @@ export class CurrentProduct extends Card {
    }
 
    createProductColorButton(color) {
+      const wrapper = document.createElement('li');
+      wrapper.classList.add('product__color-itemWrapper');
       const currentColor = document.createElement('button');
       currentColor.classList.add('product__color-item');
-      currentColor.classList.add(color)
-      return currentColor;
+      wrapper.classList.add(color);
+      wrapper.append(currentColor);
+      return wrapper;
    }
 
    createProductBase() {
@@ -404,6 +420,8 @@ export class CurrentProduct extends Card {
       currentBaseButton.textContent = text;
       const checkButton = document.createElement('div');
       checkButton.classList.add('product__base-button-check');
+      const checkedDiv = document.createElement('div');
+      checkButton.append(checkedDiv);
       currentBaseButton.prepend(checkButton);
       return currentBaseButton;
    }
@@ -506,9 +524,9 @@ export class CurrentProduct extends Card {
          });
 
          console.log(addedProducts);
-         //треба розібратись з Post запитом
-         //server.post('cart', addedProducts);
-
+         const oldStorage = localStorage.getItem('cart');
+         if(!oldStorage) localStorage.setItem('cart', JSON.stringify(addedProducts));
+         else localStorage.setItem('cart', JSON.stringify(addedProducts.concat(JSON.parse(oldStorage))));
          this.updateCart();
       });
 
@@ -538,13 +556,10 @@ export class CurrentProduct extends Card {
    updateCart() {
       const cartWrappers = document.querySelectorAll('.header__action-cart-wrapper');
       cartWrappers.forEach(cartWrapper => {
-         const server = new Server();
-
          const cartItemCount = cartWrapper.querySelector('.header__action-cart-itemCount');
          const cart = cartWrapper.querySelector('.header__action-cart');
 
-         let itemNumber = 0;
-         server.request('cart').then((value) => itemNumber = value.length);
+         let itemNumber = JSON.parse(localStorage.getItem('cart')).length;
          if (itemNumber === 0) cartItemCount.classList.add('hidden');
          else {
             cartItemCount.classList.remove('hidden');

@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Cart</title>
+   <meta charset="UTF-8">
+   <title>Cart</title>
+   <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body>
+   <div class="header-wrapper cart">
+      @@include('../layout/header.html', {"theme": "white"})
+   </div>
 
+   @@include('../layout/footer.html')
+   <script src="../js/pages/cart/cart.js"></script>
+   <script type="module" src="../js/pages/menu.js"></script>
 </body>
 </html>

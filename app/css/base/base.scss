@@ -6,6 +6,11 @@
 body {
    font-family: 'Montserrat', sans-serif;
    width: 100vw;
+   overflow-x: hidden;
+}
+
+a {
+   text-decoration: none;
 }
 
 h1 {
@@ -53,6 +58,8 @@ p {
 input {
    position: relative;
 
+   box-sizing: border-box;
+   padding: 8px;
    min-height: 30px;
    min-width: 300px;
    border-radius: 16px;

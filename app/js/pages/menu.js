@@ -55,4 +55,25 @@ searchInput.addEventListener('change', (event) => {
    }
 })
 
+const updateCart = () => {
+   const cartObject = localStorage.getItem('cart');
+   if(cartObject) {
+      const cartWrappers = document.querySelectorAll('.header__action-cart-wrapper');
+      cartWrappers.forEach(cartWrapper => {
+         const cartItemCount = cartWrapper.querySelector('.header__action-cart-itemCount');
+         const cart = cartWrapper.querySelector('.header__action-cart');
+   
+         let itemNumber = JSON.parse(cartObject).length;
+         if (itemNumber === 0) cartItemCount.classList.add('hidden');
+         else {
+            cartItemCount.classList.remove('hidden');
+            cartItemCount.textContent = itemNumber;
+         }
+      });
+   }
+}
+
+window.onload = updateCart();
+
+
 //Додати listener на клік на кнопку корзини і логіку створювання вікна корзини

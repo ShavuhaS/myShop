@@ -9,17 +9,20 @@ const categoriesBlock = new CategoriesCard({
         {
             "image": "../images/categories/bike-1.png",
             "background": "../images/categories/background-1.png",
-            "title": "OFFROAD SERIES"
+            "title": "OFFROAD SERIES",
+            "name": "mountain" 
         },
         {
             "image": "../images/categories/bike-2.png",
             "background": "../images/categories/background-2.png",
-            "title": "ROAD SERIES"
+            "title": "ROAD SERIES",
+            "name": "road" 
         },
         {
             "image": "../images/categories/bike-3.png",
             "background": "../images/categories/background-3.png",
-            "title": "STREET SERIES"
+            "title": "STREET SERIES",
+            "name": "street"
         }
     ]
 });
