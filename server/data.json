@@ -5,6 +5,7 @@
    "products": [
       {
          "id": "1",
+         "amount": 10,
          "category": "mountain",
          "name": "STREETSTER NATHAN",
          "price": 500,
@@ -62,6 +63,7 @@
       },
       {
          "id": "2",
+         "amount": 10,
          "category": "mountain",
          "name": "STREETSTER BAKERSTREET",
          "price": 550,
@@ -118,6 +120,7 @@
       },
       {
          "id": "3",
+         "amount": 10,
          "category": "mountain",
          "name": "STREETSTER BROADWAY",
          "price": 500,
@@ -166,6 +169,7 @@
       },
       {
          "id": "4",
+         "amount": 10,
          "category": "street",
          "name": "STREETSTER BAKERSTREET",
          "price": 700,
@@ -226,6 +230,7 @@
       },
       {
          "id": "5",
+         "amount": 10,
          "category": "street",
          "name": "STREETSTER BROADWAY",
          "price": 2000,
@@ -274,6 +279,7 @@
       },
       {
          "id": "6",
+         "amount": 10,
          "category": "road",
          "name": "STREETSTER BROADWAY",
          "price": 1500,

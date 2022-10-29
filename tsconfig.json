@@ -1,0 +1,9 @@
+{
+   "files": ["app/ts/menu.ts"],
+   "compilerOptions": {
+      "noImplicitAny": false,
+      "target": "ES6",
+      "moduleResolution": "classic",
+      "module": "ES6"
+   }
+}

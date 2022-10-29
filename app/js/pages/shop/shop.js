@@ -1,9 +1,9 @@
-import {ProductCard, Server} from '../main/classes.js'
+import { ProductCard, Server } from '../main/classes.js'
 
 const urlParams = new URLSearchParams(window.location.search);
 const server = new Server();
 
-if(urlParams.get('category')) {
+if (urlParams.get('category')) {
    server.request(`products?category=${urlParams.get('category')}`).then((value) => {
       value.forEach((product) => {
          const currentProduct = new ProductCard(product);
@@ -14,6 +14,6 @@ if(urlParams.get('category')) {
       value.forEach((product) => {
          const currentProduct = new ProductCard(product);
       })
-  })
+   })
 }
 

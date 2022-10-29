@@ -1,3 +1,28 @@
+import * as elementsModule from '../../modules/elements.js';
+import {createElement} from '../../modules/elements.js';
+
+
+export class Server {
+   constructor() {
+      this.serverUrl = "http://localhost:4800/";
+   }
+
+   request = (url) => {
+      return fetch(`${this.serverUrl}${url}`).then((response) => response.json())
+   }
+
+   post = (url, body) => {
+      return fetch(`${this.serverUrl}${url}`, {
+         method: "POST",
+         headers: {
+            "content-type": "application/json"
+         },
+         body: body
+      }).then((value) => {
+         return value.json();
+      });
+   }
+}
 
 export class Card {
    constructor(properties) {
@@ -27,12 +52,15 @@ export class CategoriesCard extends Card {
    }
 
    createTitle() {
-      const currentTitle = document.createElement('h2');
-      currentTitle.classList.add('categories-title');
-      const createTitleSpan = document.createElement('span');
-      createTitleSpan.textContent = this.index;
-      currentTitle.append(createTitleSpan);
-      currentTitle.textContent = this.name;
+      const currentTitle = createElement({
+         tag: 'h2',
+         classList: ['categories-title']
+      });
+      const createTitleSpan = createElement({
+         tag: 'span',
+         data: this.index
+      });
+      currentTitle.append(createTitleSpan, this.name);
       return currentTitle;
    }
 
@@ -621,24 +649,3 @@ export class CurrentProduct extends Card {
 
 }
 
-export class Server {
-   constructor() {
-      this.serverUrl = "http://localhost:4800/";
-   }
-
-   request = (url) => {
-      return fetch(`${this.serverUrl}${url}`).then((response) => response.json())
-   }
-
-   post = (url, body) => {
-      return fetch(`${this.serverUrl}${url}`, {
-         method: "POST",
-         headers: {
-            "content-type": "application/json"
-         },
-         body: body
-      }).then((value) => {
-         return value.json();
-      });
-   }
-}

@@ -7,11 +7,88 @@
 </head>
 <body>
    <div class="header-wrapper cart">
-      @@include('../layout/header.html', {"theme": "white"})
+      @@include('../layout/header.html', {"theme": "black"})
+   </div>
+   <div class="checkout__section">
+      <h1 class="checkout__title">Оформлeние заказа</h1>
+      <div class="checkout__content">
+         <div class="checkout__cart-wrapper">
+            <h3 class="checkout__cart-title">Товаров в корзине: <span class="checkout__cart-amount"></span></h3>
+            <div class="checkout__cart">
+               <!-- product preview items -->
+               <div class="cart__item">
+                  <img class="cart__item-image" src="../images/shop/bike-1.png" alt="">
+                     <div class="cart__item-details">
+                        <h3>STREETSTER NATHAN</h3>
+                        <p>Цвет: черный, Рама: 54”</p>
+                     </div>
+                     <div class="cart__item-amount">
+                        <p>-</p>
+                        <span>1</span>
+                        <p>+</p>
+                     </div>
+                     <p class="cart__item-price">12000 ₴</p>
+               </div>
+               <div class="cart-item"></div>
+            </div>
+
+            <div class="checkout__cart-details">
+               <h4 class="checkout__cart-delivery">Доставка: <span id="deliveryPrice"></span></h4>
+               <h4 class="checkout__cart-total">Итого: <span id="totalPrice"></span></h4>
+            </div>
+         </div>
+
+         <div class="checkout__form-wrapper">
+            <h3>Контактная информация</h3>
+            <form class="checkout__form" name="contact" action="">
+               <label for="" class="checkout__form-input">
+                  Имя
+                  <input type="text" name="" id="firstName">
+               </label>
+
+               <label for="" class="checkout__form-input">
+                  Фамилия
+                  <input type="text" name="" id="lastName">
+               </label>
+
+               <label for="" class="checkout__form-input">
+                  Номер телефона
+                  <input type="number" name="" id="phoneNumber">
+               </label>
+               
+               <label for="" class="checkout__form-input">
+                  E-mail
+                  <input type="email" name="" id="email">
+               </label>
+            </form>
+
+            <h3>Оплата и доставка</h3>
+            <form class="checkout__form" name="payment" action="">
+               <label for="" class="checkout__form-input">
+                  Способ оплаты
+                  <input type="text" name="" id="paymentMethod">
+               </label>
+
+               <label for="" class="checkout__form-input">
+                  Способ получения
+                  <input type="text" name="" id="deiveryMethod">
+               </label>
+
+               <label for="" class="checkout__form-input">
+                  Город
+                  <input type="text" name="" id="city">
+               </label>
+               
+               <label for="" class="checkout__form-input">
+                  Адрес доставки
+                  <input type="text" name="" id="address">
+               </label>
+            </form>
+         </div>
+      </div>
    </div>
 
-   @@include('../layout/footer.html')
-   <script src="../js/pages/cart/cart.js"></script>
-   <script type="module" src="../js/pages/menu.js"></script>
+   <script src="../ts/pages/cart.js"></script>
+   <script type="module" src="../ts/menu.js"></script>
 </body>
 </html>

@@ -1,19 +1,16 @@
 import { Server } from './main/classes.js';
+import { previewProductBlock } from '../modules/productModule.js';
 
 const server = new Server();
 
-const toggleMenu = () => {
-   const toggleButtons = document.querySelectorAll('.header__action-menu');
+const toggleButtons = document.querySelectorAll('.header__action-menu');
 
-   toggleButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-         const menu = document.querySelector('.header__menu-wrapper');
-         menu.classList.toggle('hidden');
-      })
+toggleButtons.forEach((button) => {
+   button.addEventListener('click', () => {
+      const menu = document.querySelector('.header__menu-wrapper');
+      menu.classList.toggle('hidden');
    })
-}
-
-toggleMenu();
+})
 
 const searchItem = (item) => {
    const searchItemWrapper = document.createElement('a');
@@ -45,7 +42,7 @@ searchInput.addEventListener('change', (event) => {
       server.request(`products?q=${event.target.value}`).then((response) => {
          console.log(response);
          response.forEach((item) => {
-            searchDropdown.append(searchItem(item));
+            searchDropdown.append(previewProductBlock(item));
          })
       })
    } else {
@@ -54,6 +51,36 @@ searchInput.addEventListener('change', (event) => {
 
    }
 })
+
+const cartButtons = document.querySelectorAll('.header__action-cart');
+cartButtons.forEach( (button) => {
+   button.addEventListener('click', (event) => {
+      const cartWrapper = document.querySelector('.header__cart-wrapper');
+      const cart = localStorage.getItem('cart');
+      if(!cart) {
+         cartWrapper.classList.add('empty');
+         cartWrapper.textContent = 'Корзина пустая'
+      } else {
+         cartWrapper.classList.remove('empty');
+         const itemWrapper = cartWrapper.querySelector('.header__cart');
+         itemWrapper.textContent = '';
+         const cartTotalPrice = document.querySelector('.header__cart-price');
+         const cartProductNumber = document.querySelector('.header__cart-amount');
+         let totalPrice = 0;
+
+         JSON.parse(cart).forEach((product) => {
+            console.log(product);
+            totalPrice += product.price;
+            itemWrapper.append(previewProductBlock(product));
+         })
+
+         cartTotalPrice.textContent = `${totalPrice} $`;
+
+         cartProductNumber.textContent = JSON.parse(cart).length;
+      }
+      cartWrapper.classList.toggle('hidden');
+   })
+});
 
 const updateCart = () => {
    const cartObject = localStorage.getItem('cart');
@@ -74,6 +101,3 @@ const updateCart = () => {
 }
 
 window.onload = updateCart();
-
-
-//Додати listener на клік на кнопку корзини і логіку створювання вікна корзини
